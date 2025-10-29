@@ -1,2 +1,4 @@
-textEditor: textEditor.c
-	$(CC) textEditor.c -o textEditor -Wall -Wextra -pedantic -std=c99
+CFLAGS=-Wall -Wextra -std=c11 -pedantic -ggdb
+
+heap: malloc.c
+	$(CC) $(CFLAGS) -o heap malloc.c
