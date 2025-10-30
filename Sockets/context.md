@@ -37,3 +37,9 @@ Computers store multi-byte numbers in two ways
 1. Big Endian (Network Byte Order) -> Most Significant byte to first
 2. Little Endian (Most AMD/Intel CPUs) -> Least Significant byte first
 Network always uses Big Endian form.
+
+CONNECT TO SERVER
+connect(s, (struct sockaddr *)&sock, sizeof(struct sockaddr_in))
+Establishes a connection to google's tcp server. We do a typecast to sockaddr since it works with any IP protocol whereas struct 'sockaddr_in sock' only works with IPv4 address structure. 
+Returns 0 on success and -1 on failure.
+
