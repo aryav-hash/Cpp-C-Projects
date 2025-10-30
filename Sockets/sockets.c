@@ -34,7 +34,8 @@ int main() {
     } 
 
     write(s, data, strlen(data));
-    read(s, buf, 511);
+    int n = read(s, buf, 511);
+    buf[n] = '\0';
     close(s);
 
     printf("\n%s\n", buf);
