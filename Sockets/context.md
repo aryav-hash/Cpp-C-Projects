@@ -18,6 +18,7 @@ SOCK_STREAM: It is for TCP connection.
 ->Ordered: Data arrives in the same order it was sent
 ->Byte stream: Data flows continuously like a stream, no message boundaries.
 ->Error checked: Automatic retransmission, if packets are lost.
+Returns: file descriptor s (or -1 on error)
 
 0: Default protocol (TCP in our case)
 
@@ -27,7 +28,7 @@ struct sockaddr_in is a structure that holds an IPv4 socket address
 struct sockaddr_in {
     sa_family_t sin_family // Address family (AF_INET for IPv4)
     in_port_t sin_port // Port number
-    struct in_addr sin_addr // IPv4 address
+    struct in_addr sin_addr // address
     char sin_zero[8] // padding to match sockaddr
 };
 
@@ -42,4 +43,6 @@ CONNECT TO SERVER
 connect(s, (struct sockaddr *)&sock, sizeof(struct sockaddr_in))
 Establishes a connection to google's tcp server. We do a typecast to sockaddr since it works with any IP protocol whereas struct 'sockaddr_in sock' only works with IPv4 address structure. 
 Returns 0 on success and -1 on failure.
+
+
 
